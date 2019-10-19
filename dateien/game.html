@@ -173,9 +173,9 @@
     for (var int = 2; int < lines.length; int++) {
         aufgaben_ergebnisse.push(lines[int]);
     }
-    var spieler_1 = nextPlayer_blue();
-    var spieler_2 = nextPlayer_red();
-    var aufgabe = nextAufgabe();
+    spieler_1 = nextPlayer_blue();
+    spieler_2 = nextPlayer_red();
+    aufgabe = nextAufgabe();
 }
 
 function shuffle(array) {
@@ -198,8 +198,8 @@ function shuffle(array) {
   }
 
 function nextPlayer_blue() {
-    if(team_blau.size != 0) {
-        if (blau_counter >= team_blau.size) {
+    if(team_blau.length != 0) {
+        if (blau_counter >= team_blau.length) {
             blau_counter = 0;
         }
         if(blau_counter == 0) {
@@ -212,8 +212,8 @@ function nextPlayer_blue() {
     }
 
 function nextPlayer_red() {
-    if (team_rot.size != 0) {
-        if (rot_counter >= team_rot.size) {
+    if (team_rot.length != 0) {
+        if (rot_counter >= team_rot.length) {
             rot_counter = 0;
         }
         if (rot_counter == 0) {
@@ -226,21 +226,21 @@ function nextPlayer_red() {
     }
 
 function nextAufgabe() {
-    if (aufgaben_ergebnisse.size != 0) {
-    if (aufgaben_counter >= aufgaben_ergebnisse.size) {
+    if (aufgaben_ergebnisse.length != 0) {
+    if (aufgaben_counter >= aufgaben_ergebnisse.length) {
         aufgaben_counter = 0;
+    }
     if (aufgaben_counter == 0) {
         aufgaben_ergebnisse = shuffle(aufgaben_ergebnisse);
     }
-        for (var int = 0; int < aufgaben_ergebnisse.size; int++) {
+    for (var int = 0; int < aufgaben_ergebnisse.length; int++) {
             aufgaben.push(aufgaben_ergebnisse[int].split('=')[0]);
             ergebnisse.push(aufgaben_ergebnisse[int].split('=')[1]);
         }
-    }
     var test = aufgaben[aufgaben_counter];
     aufgaben_counter++;
     return test;
-}
+    }
 }
     
     
