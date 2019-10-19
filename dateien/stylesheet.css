@@ -1,12 +1,12 @@
 h1{
-font-size: 40pt; 
+font-size: 30pt; 
 }
 
 
 .column {
   float: left;
   width: 50%;
-  font-size: 30pt;
+  font-size: 20pt;
   text-align: center;
 }
 
