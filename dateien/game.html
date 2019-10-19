@@ -20,6 +20,9 @@
     var blau_counter = 0;
     var rot_counter = 0;
     var aufgaben_counter = 0;
+    var spieler_1 = "";
+    var spieler_2 = "";
+    var aufgabe = "";
 
     window.onload = function () { 
     if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -61,6 +64,11 @@
     ball.src = 'bilder/ball70px.png';
     ball.onload = function(){
         ctx.drawImage(ball, x, y);
+       ctx.font = "60px Arial";
+       ctx.fillText(spieler_1, 650, 100);
+       ctx.fillText(spieler_2, 650, 320);
+       ctx.font = "80px Arial";
+       ctx.fillText(aufgabe, 875, 225);
     }
 
     document.addEventListener("keydown", keyDownHandler, false);
@@ -106,6 +114,9 @@
     }
 
     function move(){
+        spieler_1 = nextPlayer_blue();
+        spieler_2 = nextPlayer_red();
+        aufgabe = nextAufgabe();
         var random = Math.floor(Math.random() * 10);
         if(position == 6){
                 x = startX;
@@ -162,6 +173,9 @@
     for (var int = 2; int < lines.size; int++) {
         aufgaben_ergebnisse.add(lines[int]);
     }
+    var spieler_1 = nextPlayer_blue();
+    var spieler_2 = nextPlayer_red();
+    var aufgabe = nextAufgabe();
 }
 
 function shuffle(array) {
@@ -185,30 +199,42 @@ function shuffle(array) {
 
 function nextPlayer_blue() {
         if (blau_counter == team_blau.size) {
-            team_blau = shuffle(team_blau);
             blau_counter = 0;
         }
-        return team_blau[blau_counter];
+        if(blau_counter == 0) {
+            team_blau = shuffle(team_blau);
+        }
+        var test = team_blau[blau_counter];
+        blau_counter++;
+        return test;
     }
 
 function nextPlayer_red() {
-        if (red_counter == team_rot.size) {
-            team_rot = shuffle(team_rot);
+        if (rot_counter == team_rot.size) {
             rot_counter = 0;
         }
-        return team_rot[rot_counter];
+        if (rot_counter == 0) {
+            team_rot = shuffle(team_rot);
+        } 
+        var test = team_rot[rot_counter];
+        rot_counter++;
+        return test;
     }
 
 function nextAufgabe() {
     if (aufgaben_counter == aufgaben_ergebnisse.size) {
-        aufgaben_ergebnisse = shuffle (aufgaben_ergebnisse);
         aufgaben_counter = 0;
+    if (aufgaben_counter == 0) {
+        aufgaben_ergebnisse = shuffle(aufgaben_ergebnisse);
+    }
         for (var int = 0; int < aufgaben_ergebnisse.size; int++) {
             aufgaben.add(aufgaben_ergebnisse[int].split('=')[0]);
             ergebnisse.add(aufgaben_ergebnisse[int].split('=')[1]);
         }
     }
-    return aufgaben[aufgaben_counter];
+    var test = aufgaben[aufgaben_counter];
+    aufgaben_counter++;
+    return test;
 }
     
     
