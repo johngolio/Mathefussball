@@ -2,16 +2,24 @@ body{
   background-image: url("bilder/HG.PNG");
   background-size: 100%;
  }
+ #imgContainer{
+  height: 140px;
+  width: 300px;
+  overflow: hidden;
+  margin: auto;
+  padding-bottom: 25px;
+ }
  #logo{
+   margin-top: 0;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
- height: 150px;
- width: 300px;
  box-align: center;
+ border: transparent;
  background-image: url("bilder/LogoFreigestellt.PNG");
  background-size: 100%;
- border: 0;
+ height: 180px;
+ width: 310px;
+ margin-left: -5px;
+ margin-top: -5px;
  }
  .container{
   box-shadow: 8px 8px 30px grey;
