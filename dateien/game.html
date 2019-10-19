@@ -43,6 +43,20 @@
         }
     }
 
+    function parseTxt(txt_file_as_string) {
+        var team_blau = [];
+        var team_rot = [];
+        var aufgaben = [];
+        var ergebnisse = [];
+        var lines = txt_file_as_string.split('\n');
+        team_blau = lines[0].split(',');
+        team_rot = lines[1].split(',');
+        for (var int = 2; int < lines.size; int++) {
+            aufgaben.add(lines[int].split('=')[0]);
+            ergebnisse.add(lines[int].split('=')[1]);
+        }
+    }
+
     function keyUpHandler(e) {
         if(e.key == "Right" || e.key == "ArrowRight") {
             move();

@@ -27,23 +27,36 @@ window.onload = function () {
     } 
 }
 
-function parse(string){
+function parse_schueler(string){
     exercises = [];
     results = [];
 
     var lines = string.split("\n");
     player = lines[0];
 
-    var fileContents = document.getElementById('aufgaben'); 
+    var fileContents = document.getElementById('text'); 
 
     for(var i = 1; i < lines.length; i++){
         fileContents.innerText += lines[i] + "\n"; 
-
-        var split = lines[i].split("=");
-        exercises.push(split[0].trim());
-        results.push(split[1].trim());
     }
+}
 
+    function parse(string){
+        exercises = [];
+        results = [];
+    
+        var lines = string.split("\n");
+        player = lines[0];
+    
+        var fileContents = document.getElementById('aufgaben'); 
+    
+        for(var i = 1; i < lines.length; i++){
+            fileContents.innerText += lines[i] + "\n"; 
+    
+            var split = lines[i].split("=");
+            exercises.push(split[0].trim());
+            results.push(split[1].trim());
+        }
 
 
     console.log(exercises[0]);
