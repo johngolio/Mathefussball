@@ -14,61 +14,56 @@
         Mathefussball :)
     </h1>
     <div class="row">
-        <div class="column">
-            <p>Waehlen Sie aus, ob sie die Namen der Schüler eingeben wollen, oder Zahlen-Karten austeilen wollen.</p>
-            <select id="select_1">
-                <option value="1">Zahlen</option>
-                <option value="2">Namen</option>
-            </select>
-            <div id="schueler_zahlen">
-            <p style="font-weight: bold">Anzahl der Schueler:</p>
-            <input id="kids" name="kids" style="width: 50px">
-            </div>
-            <div id="schueler_namen" style="text-align:center;">
+        <div class="columnLeft">
+            <div class="container">
                 <p style="font-weight: bold; font-size: 20pt;">Schueler:</p>
-                Wählen Sie eine Datei mit Schuelern aus:
-                <br />
-                <input type="file" id="txtfiletoread" style="margin:10px;" />
-                <div>Folgende Schueler spielen mit:</div>
-                <div id="filecontents">
+                <p>Waehlen Sie aus, ob Sie die Namen der Schüler eingeben wollen, oder Zahlen-Karten austeilen wollen.
+                </p>
+                <select id="select_1">
+                    <option value="1">Zahlen</option>
+                    <option value="2">Namen</option>
+                </select>
+                <div id="schueler_zahlen">
+                    <div>
+                        <p>Anzahl der Schueler:</p>
+                        <input id="kids" name="kids" style="width: 50px">
+                    </div>
                 </div>
-                <br />
-                <div>
-                    <label for="text" id="schueler">Neue Aufgaben hinzufügen:</label>
-                    <br />
-                    <textarea id="text" name="text" cols="35" rows="15"
-                        placeholder="Jeden Schueler in eine neue Zeile eingeben. Ohne Trennungszeichen!"></textarea>
+                <div id="schueler_namen" style="text-align:center;">
+                    <p>Wählen Sie eine Datei mit Schuelern aus:</p>
+                    <input type="file" id="txtfiletoread" />
+                    <div>Folgende Schueler spielen mit:
+                        <div id="filecontents">
+                        </div>
+                    </div>
+                    <div>
+                        <textarea id="text" name="text" cols="35" rows="15"
+                            placeholder="Jeden Schueler in eine neue Zeile eingeben. Ohne Trennungszeichen!"></textarea>
+                    </div>
                 </div>
-            </div>
-            <div class="column">
-                <p style="font-weight: bold">Schuesse bis zum Tor:</p>
-                <input id="goal" name="goal" style="width: 50px">
             </div>
         </div>
-        <div style="text-align:center;">
-            <br />
-            <p style="font-weight: bold; font-size: 20pt;">Aufgaben:</p>
-            Wählen Sie eine Datei mit Aufgaben aus:
-            <br />
-            <input type="file" id="txtfiletoread" style="margin:10px;" />
-            <div>Folgende Aufgaben sind enthalten:</div>
-            <div id="filecontents">
+        <div class="columnRight">
+            <div class="container">
+                <div style="text-align:center;">
+                    <p style="font-weight: bold; font-size: 20pt;">Aufgaben:</p>
+                    <p>Wählen Sie eine Datei mit Aufgaben aus:</p>
+                    <input type="file" id="txtfiletoread" style="margin:10px;" />
+                    <div>Folgende Aufgaben sind enthalten, Sie können neue Aufgaben hinzufügen.</div>
+                    <div>
+                        <textarea id="shueler_text" name="text" cols="35" rows="15"
+                            placeholder="Jede Aufgabe in eine neue Zeile eingeben. Ohne Trennungszeichen!"></textarea>
+                    </div>
+                </div>
             </div>
-            <br />
-            <div>
-                <label for="text" id="aufgaben">Neue Aufgaben hinzufügen:</label>
-                <br />
-                <textarea id="text" name="text" cols="35" rows="15"
-                    placeholder="Jede Aufgabe in eine neue Zeile eingeben. Ohne Trennungszeichen!"></textarea>
+        </div>
+    </div>
 
-            </div>
-
-            <div style="text-align: center; margin-top: 25px; font-size: 25pt;">
-                <button style="height: 30px; width:60pt;" type="button" id="save">Speichern</button>
-
-            </div>
-            <script src="parser.js"></script>
-            <script src="dateien/startSeite.js"></script>
+    <div id="saveContainer">
+        <button type="button" id="save">Speichern</button>
+    </div>
+    <script src="parser.js"></script>
+    <script src="dateien/startSeite.js"></script>
 </body>
 
 </html>
