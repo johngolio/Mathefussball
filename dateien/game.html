@@ -11,13 +11,17 @@
 
 <script>
     var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    var x = 895;
-    var y = 555;    
+    var ctx = canvas.getContext("2d");    
     var rightPressed = false;
     var leftPressed = false;
     var rightClicked = false;
     var leftClicked = false;
+    var posArray = [185, 385, 585, 895, 1125, 1425, 1625];
+    var position = 3;
+    var startX = 895;
+    var startY = 555;
+    var x = startX;
+    var y = startY;
     
     ball = new Image();
     ball.src = 'bilder/ball70px.png';
@@ -69,22 +73,48 @@
 
     function move(){
         var random = Math.floor(Math.random() * 10);
+        if(position == 6){
+                x = startX;
+                y = startY;
+                alert("TOR FÜR BLAU!!!");
+                canvas.width = canvas.width;
+                ball.onload();
+                position = 3;
+                return;
+        }
+        if(position == 0){
+                x = startX;
+                y = startY;
+                alert("TOR FÜR ROT!!!");
+                canvas.width = canvas.width;
+                ball.onload();
+                position = 3;
+                return;
+        }
         if(rightPressed || rightClicked){
-            x += canvas.width/5;
-            if (random % 2 == 0){
-                y += Math.random() * (878 - y);
+            position++;
+            x = posArray[position];
+            if(position == 6){
+                y = startY;
+            }
+            else if(random % 2 == 0){
+                y += Math.random() * (808 - y);
             }
             else{
-                y -= Math.random() * (y - 413);
+                y -= Math.random() * (y - 343);
             }
         }
         if(leftPressed || leftClicked){
-            x -= canvas.width/5;
-            if (random % 2 == 0){
-                y += Math.random() * (878 - y);
+            position--;
+            x = posArray[position];
+            if(position == 0){
+                y = startY;
+            }
+            else if(random % 2 == 0){
+                y += Math.random() * (808 - y);
             }
             else{
-                y -= Math.random() * (y - 413);
+                y -= Math.random() * (y - 343);
             }
         }
         canvas.width = canvas.width;
