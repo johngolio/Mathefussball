@@ -53,12 +53,12 @@
     function mouseMoveHandler(e) {
         var relativeX = e.clientX - canvas.offsetLeft;
         if(relativeX > 0 && relativeX < canvas.width) {
-            if(relativeX >= canvas.width/2){
+            if(relativeX >= canvas.width/2 && !leftPressed && !rightPressed){
                 rightClicked = true;
                 move();
                 rightClicked = false;
             }
-            else{
+            else if(relativeX < canvas.width/2 && !leftPressed && !rightPressed){
                 leftClicked = true;
                 move();
                 leftClicked = false;
@@ -68,11 +68,24 @@
     }
 
     function move(){
+        var random = Math.floor(Math.random() * 10);
         if(rightPressed || rightClicked){
             x += canvas.width/5;
+            if (random % 2 == 0){
+                y += Math.random() * (878 - y);
+            }
+            else{
+                y -= Math.random() * (y - 413);
+            }
         }
         if(leftPressed || leftClicked){
             x -= canvas.width/5;
+            if (random % 2 == 0){
+                y += Math.random() * (878 - y);
+            }
+            else{
+                y -= Math.random() * (y - 413);
+            }
         }
         canvas.width = canvas.width;
         ball.onload();
