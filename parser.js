@@ -72,14 +72,13 @@ saveBtn.addEventListener("click", function(){
             string2 += ","+loop;
         }
         if (team1_size > team2_size) {
-            loop++;
             string1 += ","+loop;
         }
         saveTxt += string1+"\n"+string2;
     }
     else {
         // Namen
-        var schueler_namen = document.getElementById("schueler_text").split("\n");
+        var schueler_namen = document.getElementById("text").split("\n");
         schueler_namen = shuffle(schueler_namen);
         var max_size = Math.ceil(schueler_namen.size / 2);
         team_blau = schueler_namen.slice(0,max_size);
@@ -97,7 +96,7 @@ saveBtn.addEventListener("click", function(){
         }
         saveTxt += string1+"\n"+string2;
     }
-    saveTxt += aufgaben;
+    saveTxt += shueler_text;
     download("Klasse1", saveTxt);
 }); 
 
