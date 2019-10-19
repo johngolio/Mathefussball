@@ -1,10 +1,29 @@
+body{
+  margin: 60px;
+}
+
 h1{
 font-size: 30pt; 
 }
 
+.container{
+  box-shadow: 8px 8px 30px #888888;
+  height: 65vh;
+  width: 90%;
+  display: inline-block;
+  border-radius: 20px;
+}
 
-.column {
+.columnLeft {
   float: left;
+  width: 50%;
+  font-size: 20pt;
+  text-align: center;
+}
+
+
+.columnRight {
+  float: right;
   width: 50%;
   font-size: 20pt;
   text-align: center;
@@ -15,4 +34,15 @@ font-size: 30pt;
   content: "";
   display: table;
   clear: both;
+}
+
+#saveContainer{
+  padding: 50px;
+  text-align: center;
+}
+
+#save{
+  font-size: 20pt;
+  padding: 10px;
+  border-radius: 10px;
 }
