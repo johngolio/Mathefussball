@@ -1,52 +1,52 @@
 body{
-  margin: 60px;
-}
-
-h1{
-font-size: 30pt; 
-}
-
-.container{
+  background-image: url("bilder/HG.PNG");
+  background-size: 100%;
+ }
+ #logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+ height: 150px;
+ width: 300px;
+ box-align: center;
+ border: none;
+ background-image: url("bilder/LogoFreigestellt.PNG");
+ background-size: 100%;
+ }
+ .container{
   box-shadow: 8px 8px 30px #888888;
   height: 65vh;
   width: 90%;
   display: inline-block;
   border-radius: 20px;
-}
-
-.columnLeft {
+ }
+ .columnLeft {
   float: left;
   width: 50%;
   font-size: 20pt;
   text-align: center;
-}
-
-
-.columnRight {
+ }
+ .columnRight {
   float: right;
   width: 50%;
   font-size: 20pt;
   text-align: center;
-}
-
-/* Clear floats after the columns */
-.row:after {
+ }
+ /* Clear floats after the columns */
+ .row:after {
   content: "";
   display: table;
   clear: both;
-}
-
-#saveContainer{
+ }
+ #saveContainer{
   padding: 50px;
   text-align: center;
-}
-
-#save{
+ }
+ #save{
   font-size: 20pt;
   padding: 10px;
   border-radius: 10px;
-}
-
-.selector{
+ }
+ .selector{
   display: inline-block;
-}
+ }
