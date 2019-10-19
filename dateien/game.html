@@ -35,6 +35,8 @@
                     fileReader.onload = function (e) { 
                         content = fileReader.result;
                         parseTxt(content);
+                        canvas.width = canvas.width;
+                        ball.onload();
                     } 
                     fileReader.readAsText(fileTobeRead); 
                 } 
