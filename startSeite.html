@@ -12,21 +12,29 @@
         <h1  style="text-align: center">
             Mathefussball :)
         </h1>
-        <div>
-        Eine datei auswaehlen:
-        <input type="file" id="txtfiletoread" />
-        <div>The File Contents are as below:</div> 
-        <div id="filecontents">
-        </div>
         <div class="row">
             <div class="column">
-                <p>Anzahl der Schueler:</p>
+                <p style="font-weight: bold">Anzahl der Schueler:</p>
                 <input id="kids" name="kids" style="width: 50px">
             </div>
             <div class="column">
-                <p>Schuesse bis zum Tor:</p>
+                <p style="font-weight: bold">Schuesse bis zum Tor:</p>
                 <input id="goal" name="goal" style="width: 50px">
             </div>
+        </div>
+        <div>
+            <br/>
+            <p style="font-weight: bold">Aufgaben:</p>
+                Wählen Sie eine Datei mit Aufgaben aus:
+                <br/>
+                <input type="file" id="txtfiletoread" style="margin:10px;"/>
+                <div>Folgende Aufgaben sind enthalten:</div> 
+                <div id="filecontents">
+                </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button type="button">Speichern</button>
+            <button type="button">Start</button>
+
         </div>
     </body>
 </html>
