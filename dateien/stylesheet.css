@@ -1,6 +1,5 @@
 body{
   margin: 60px;
-
 }
 
 h1{
@@ -20,8 +19,6 @@ font-size: 30pt;
   width: 50%;
   font-size: 20pt;
   text-align: center;
-  background-image: url("bilder/katzepng.png");
-  background-size: 100%;
 }
 
 
