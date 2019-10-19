@@ -12,14 +12,49 @@
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
-
     var x = 40;
-    var y = 40;
-
+    var y = 40;    
+    var rightPressed = false;
+    var leftPressed = false;
+    
     ball = new Image();
     ball.src = 'bilder/Ball.png';
     ball.onload = function(){
         ctx.drawImage(ball, x, y);
+    }
+
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+
+    function keyDownHandler(e) {
+        if(e.key == "Right" || e.key == "ArrowRight") {
+            rightPressed = true;
+        }   
+        else if(e.key == "Left" || e.key == "ArrowLeft") {
+            leftPressed = true;
+        }
+    }
+
+    function keyUpHandler(e) {
+        if(e.key == "Right" || e.key == "ArrowRight") {
+            move();
+            rightPressed = false;
+        }
+        else if(e.key == "Left" || e.key == "ArrowLeft") {
+            move();
+            leftPressed = false;
+        }
+    }
+
+    function move(){
+        if(rightPressed){
+            x += 10;
+        }
+        if(leftPressed){
+            x -= 10;
+        }
+        canvas.width = canvas.width;
+        ball.onload();
     }
     
 </script>
