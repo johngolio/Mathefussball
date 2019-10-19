@@ -171,7 +171,9 @@
     team_blau = lines[0].split(',');
     team_rot = lines[1].split(',');
     for (var int = 2; int < lines.length; int++) {
+        if (lines[int] != "") {
         aufgaben_ergebnisse.push(lines[int]);
+        }
     }
     spieler_1 = nextPlayer_blue();
     spieler_2 = nextPlayer_red();
