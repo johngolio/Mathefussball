@@ -7,9 +7,43 @@
 </head>
 <body>
 
+<input type="file" id="input" class="selector"/>
+
 <canvas id="myCanvas" width="1920" height="1080"></canvas>
 
 <script>
+    var team_blau = [];
+    var team_rot = [];
+    var aufgaben_ergebnisse = [];
+    var aufgaben = [];
+    var ergebnisse = [];
+    var blau_counter = 0;
+    var rot_counter = 0;
+    var aufgaben_counter = 0;
+
+    window.onload = function () { 
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+        var fileSelected = document.getElementById('input');
+        fileSelected.addEventListener('change', function (e) { 
+                var fileExtension = /text.*/; 
+                var fileTobeRead = fileSelected.files[0];
+                if (fileTobeRead.type.match(fileExtension)) { 
+                    var fileReader = new FileReader(); 
+                    fileReader.onload = function (e) { 
+                        content = fileReader.result;
+                        parseTxt(content);
+                    } 
+                    fileReader.readAsText(fileTobeRead); 
+                } 
+                else { 
+                    alert("Achtung! Es muss eine txt Datei ausgewählt werden."); 
+                }
+        }, false);
+    } 
+    else { 
+        alert("Dateiformat wird nicht unterstützt."); 
+    } 
+}
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");    
     var rightPressed = false;
@@ -40,20 +74,6 @@
         }   
         else if(e.key == "Left" || e.key == "ArrowLeft") {
             leftPressed = true;
-        }
-    }
-
-    function parseTxt(txt_file_as_string) {
-        var team_blau = [];
-        var team_rot = [];
-        var aufgaben = [];
-        var ergebnisse = [];
-        var lines = txt_file_as_string.split('\n');
-        team_blau = lines[0].split(',');
-        team_rot = lines[1].split(',');
-        for (var int = 2; int < lines.size; int++) {
-            aufgaben.add(lines[int].split('=')[0]);
-            ergebnisse.add(lines[int].split('=')[1]);
         }
     }
 
@@ -135,6 +155,61 @@
         ball.onload();
     }
 
+    function parseTxt(txt_file_as_string) {
+    var lines = txt_file_as_string.split('\n');
+    team_blau = lines[0].split(',');
+    team_rot = lines[1].split(',');
+    for (var int = 2; int < lines.size; int++) {
+        aufgaben_ergebnisse.add(lines[int]);
+    }
+}
+
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  
+    return array;
+  }
+
+function nextPlayer_blue() {
+        if (blau_counter == team_blau.size) {
+            team_blau = shuffle(team_blau);
+            blau_counter = 0;
+        }
+        return team_blau[blau_counter];
+    }
+
+function nextPlayer_red() {
+        if (red_counter == team_rot.size) {
+            team_rot = shuffle(team_rot);
+            rot_counter = 0;
+        }
+        return team_rot[rot_counter];
+    }
+
+function nextAufgabe() {
+    if (aufgaben_counter == aufgaben_ergebnisse.size) {
+        aufgaben_ergebnisse = shuffle (aufgaben_ergebnisse);
+        aufgaben_counter = 0;
+        for (var int = 0; int < aufgaben_ergebnisse.size; int++) {
+            aufgaben.add(aufgaben_ergebnisse[int].split('=')[0]);
+            ergebnisse.add(aufgaben_ergebnisse[int].split('=')[1]);
+        }
+    }
+    return aufgaben[aufgaben_counter];
+}
     
     
 </script>
