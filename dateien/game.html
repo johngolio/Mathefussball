@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <title>Mathefussball</title>
-    <style>* { padding: 0; margin: 0; } canvas { background: #008000; display: block; margin: 0 auto; }</style>
+    <style>* { padding: 0; margin: 0; } canvas { background-image: url("bilder/feld-1.png");background-color: #000000; display: block; margin: 0 auto; }</style>
 </head>
 <body>
 
-<canvas id="myCanvas" width="480" height="320"></canvas>
+<canvas id="myCanvas" width="1920" height="1080"></canvas>
 
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
-    var x = 40;
-    var y = 40;    
+    var x = 880;
+    var y = 570;    
     var rightPressed = false;
     var leftPressed = false;
     var rightClicked = false;
