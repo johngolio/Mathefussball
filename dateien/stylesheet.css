@@ -9,12 +9,12 @@ body{
  height: 150px;
  width: 300px;
  box-align: center;
- border: none;
  background-image: url("bilder/LogoFreigestellt.PNG");
  background-size: 100%;
+ border: 0;
  }
  .container{
-  box-shadow: 8px 8px 30px #888888;
+  box-shadow: 8px 8px 30px grey;
   height: 65vh;
   width: 90%;
   display: inline-block;
@@ -50,3 +50,55 @@ body{
  .selector{
   display: inline-block;
  }
+
+ #save{
+   background-color: rgb(243, 55, 55);
+   color:white;
+   border: none;
+   box-shadow: 8px 8px 30px grey;
+   
+ }
+
+ #select_1{
+   background-color:transparent;
+   font-size: 15pt;
+   block-size: 40px;
+   border: 1px solid;
+ }
+
+ #kids{
+  background-color:transparent;
+  font-size: 15pt;
+  block-size: 40px; 
+  border: 1px solid;
+  border-radius: 6px;
+  height: 40px;
+  width: 40px;
+ 
+ }
+
+ #aufgaben{
+  background-color:transparent;
+  font-size: 15pt;
+  border: 1px solid;
+  border-radius: 10px;
+  margin-top: 10px;
+ }
+
+ #text{
+  background-color:transparent;
+  font-size: 15pt;
+  border: 1px solid;
+  border-radius: 10px;
+  margin-top: 10px;
+ }
+
+
+ ::-webkit-file-upload-button {
+  background: transparent;
+  font-size: 15pt;
+  block-size: 40px;
+  border: 1px solid;
+  border-radius: 6px;
+  margin-bottom: 30px;
+}
