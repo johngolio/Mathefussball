@@ -1,5 +1,6 @@
 body{
   margin: 60px;
+
 }
 
 h1{
@@ -19,6 +20,8 @@ font-size: 30pt;
   width: 50%;
   font-size: 20pt;
   text-align: center;
+  background-image: url("bilder/katzepng.png");
+  background-size: 100%;
 }
 
 
@@ -45,4 +48,8 @@ font-size: 30pt;
   font-size: 20pt;
   padding: 10px;
   border-radius: 10px;
+}
+
+.selector{
+  display: inline-block;
 }
