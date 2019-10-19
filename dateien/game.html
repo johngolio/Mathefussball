@@ -12,9 +12,12 @@
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
+    
+    var x = 40;
+    var y = 40;
 
     ctx.beginPath();
-    ctx.arc(240, 160, 20, 0, Math.PI*2, false);
+    ctx.rect(x, y, 50, 50);
     ctx.fillStyle = "#FF0000";
     ctx.fill();
     ctx.closePath();
