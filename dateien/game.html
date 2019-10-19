@@ -12,15 +12,15 @@
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
-    var x = 880;
-    var y = 570;    
+    var x = 895;
+    var y = 555;    
     var rightPressed = false;
     var leftPressed = false;
     var rightClicked = false;
     var leftClicked = false;
     
     ball = new Image();
-    ball.src = 'bilder/Ball.png';
+    ball.src = 'bilder/ball70px.png';
     ball.onload = function(){
         ctx.drawImage(ball, x, y);
     }
