@@ -34,7 +34,7 @@ function parse(string){
     var lines = string.split("\n");
     player = lines[0];
 
-    var fileContents = document.getElementById('filecontents'); 
+    var fileContents = document.getElementById('aufgaben'); 
 
     for(var i = 1; i < lines.length; i++){
         fileContents.innerText += lines[i] + "\n"; 
@@ -52,11 +52,16 @@ function parse(string){
 var saveBtn = document.getElementById("save");
 saveBtn.addEventListener("click", function(){
     var saveTxt = "";
-    player = document.getElementById("kids").value;
-    saveTxt += player +"\n";
-    for(var i = 0; i < exercises.length; i++){
-        saveTxt += exercises[i] + " = " + results[i] + "\n";
+    player = "";
+    var player_array = document.getElementById("kids").value.split('\n');
+    var team_rot = []; 
+    var team_blau = [];
+    for (var i = 0; i < player_array.length; i++) {
+        
     }
+    document.getElementById("kids").value;
+    saveTxt += player +"\n";
+    saveTxt += aufgaben;
     download("Klasse1", saveTxt);
 }); 
 
