@@ -46,3 +46,7 @@ font-size: 30pt;
   padding: 10px;
   border-radius: 10px;
 }
+
+.selector{
+  display: inline-block;
+}
