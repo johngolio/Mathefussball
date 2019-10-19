@@ -1,14 +1,23 @@
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <title>
             Mathefussball :)
         </title>
         <link rel="stylesheet" type="text/css" href="dateien/stylesheet.css">
+        <script src="parser.js"></script>
     </head>
     <body>
         <h1  style="text-align: center">
             Mathefussball :)
         </h1>
+        <div>
+        Eine datei auswaehlen:
+        <input type="file" id="txtfiletoread" />
+        <div>The File Contents are as below:</div> 
+        <div id="filecontents">
+        </div>
         <div class="row">
             <div class="column">
                 <p>Anzahl der Schueler:</p>
