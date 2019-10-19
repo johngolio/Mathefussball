@@ -74,7 +74,7 @@ saveBtn.addEventListener("click", function(){
         if (team1_size > team2_size) {
             string1 += ","+loop;
         }
-        saveTxt += string1+"\n"+string2;
+        saveTxt += string1+"\n"+string2+"\n";
     }
     else {
         // Namen
@@ -94,7 +94,7 @@ saveBtn.addEventListener("click", function(){
         for (var loopi2 = 1; loopi2 < team_blau; loopi2++) {
             string2+= ","+team_rot[loopi];
         }
-        saveTxt += string1+"\n"+string2;
+        saveTxt += string1+"\n"+string2+"\n";
     }
     saveTxt += shueler_text;
     download("Klasse1", saveTxt);
