@@ -1,6 +1,13 @@
+h1{
+font-size: 40pt; 
+}
+
+
 .column {
   float: left;
   width: 50%;
+  font-size: 30pt;
+  text-align: center;
 }
 
 /* Clear floats after the columns */
