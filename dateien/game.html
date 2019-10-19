@@ -16,6 +16,8 @@
     var y = 40;    
     var rightPressed = false;
     var leftPressed = false;
+    var rightClicked = false;
+    var leftClicked = false;
     
     ball = new Image();
     ball.src = 'bilder/Ball.png';
@@ -25,6 +27,8 @@
 
     document.addEventListener("keydown", keyDownHandler, false);
     document.addEventListener("keyup", keyUpHandler, false);
+
+    document.addEventListener("click", mouseMoveHandler, false);
 
     function keyDownHandler(e) {
         if(e.key == "Right" || e.key == "ArrowRight") {
@@ -46,16 +50,35 @@
         }
     }
 
-    function move(){
-        if(rightPressed){
-            x += 10;
+    function mouseMoveHandler(e) {
+        var relativeX = e.clientX - canvas.offsetLeft;
+        if(relativeX > 0 && relativeX < canvas.width) {
+            if(relativeX >= canvas.width/2){
+                rightClicked = true;
+                move();
+                rightClicked = false;
+            }
+            else{
+                leftClicked = true;
+                move();
+                leftClicked = false;
+            }
         }
-        if(leftPressed){
-            x -= 10;
+        
+    }
+
+    function move(){
+        if(rightPressed || rightClicked){
+            x += canvas.width/5;
+        }
+        if(leftPressed || leftClicked){
+            x -= canvas.width/5;
         }
         canvas.width = canvas.width;
         ball.onload();
     }
+
+    
     
 </script>
 
