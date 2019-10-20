@@ -26,25 +26,26 @@ html {
  }
  .container{
   box-shadow: 8px 8px 30px grey;
-  height: 65vh;
+  height: 68vh;
   width: 90%;
-  display: inline-block;
   border-radius: 20px;
-  overflow: scroll;
+  text-align: center;
+  display: inline-block;
+  overflow: auto;
  }
  .columnLeft {
-  display: inline-block;
-  width: 45%;
+  width: 50%;
   font-size: 20pt;
   text-align: center;
   min-width: 500px;
+  float: left;
  }
  .columnRight {
-  display: inline-block;
-  width: 45%;
+  width: 50%;
   font-size: 20pt;
   text-align: center;
   min-width: 500px;
+  float: right;
  }
  .row{
    text-align: center;
@@ -128,6 +129,11 @@ html {
   margin-bottom: 30px;
   outline: none;
 } 
+
+input{
+  margin-bottom: 20px;
+  margin-top: -10px;;
+}
 
 ::-webkit-input-placeholder { /* Chrome */
   color: black;
