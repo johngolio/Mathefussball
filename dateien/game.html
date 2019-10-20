@@ -130,7 +130,7 @@
                 position = 3;
                 return;
         }
-        if(position == 0){
+        else if(position == 0){
                 x = startX;
                 y = startY;
                 alert("TOR FÜR ROT!!!");
@@ -138,6 +138,12 @@
                 ball.onload();
                 position = 3;
                 return;
+        }
+        else {
+        //hello
+        spieler_1 = nextPlayer_blue();
+        spieler_2 = nextPlayer_red();
+        aufgabe = nextAufgabe(); 
         }
         if(rightPressed || rightClicked){
             position++;
