@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Mathefussball</title>
-    <style>* { padding: 0; margin: 0; } canvas { background-image: url("bilder/feld-2.png");background-color: #000000; display: block; margin: 0 auto; }</style>
+    <style>* { padding: 0; margin: 0; } canvas { background-image: url("bilder/feld-3.png");background-color: #000000; display: block; margin: 0 auto; }</style>
 </head>
 <body>
 
@@ -36,6 +36,7 @@
                         content = fileReader.result;
                         parseTxt(content);
                         canvas.width = canvas.width;
+                        screen.onload();
                         ball.onload();
                     } 
                     fileReader.readAsText(fileTobeRead); 
@@ -66,11 +67,17 @@
     ball.src = 'bilder/ball70px.png';
     ball.onload = function(){
         ctx.drawImage(ball, x, y);
-       ctx.font = "60px Arial";
-       ctx.fillText(spieler_1, 650, 100);
-       ctx.fillText(spieler_2, 650, 320);
-       ctx.font = "80px Arial";
-       setTimeout(function(){ ctx.fillText(aufgabe, 875, 225); }, 5000);
+    }
+
+    screen = new Image();
+    screen.src = 'bilder/Anzeige.png';
+    screen.onload = function(){
+        ctx.drawImage(screen, 628,28);
+        ctx.font = "60px Arial";
+        ctx.fillText(spieler_1, 650, 100);
+        ctx.fillText(spieler_2, 650, 320);
+        ctx.font = "80px Arial";
+        setTimeout(function(){ ctx.fillText(aufgabe, 875, 225); }, 5000);       //Zeit umgesetzt
     }
 
 
@@ -89,62 +96,78 @@
     }
 
     function keyUpHandler(e) {
-        if(e.key == "Right" || e.key == "ArrowRight") {
+        if((e.key == "Right" || e.key == "ArrowRight")&&(position != 0 ? position != 6:position == 6)) {
+            if(position == 5){
+                goalMove();
+                rightpressed = false;
+                return;
+            }
             move();
             rightPressed = false;
         }
-        else if(e.key == "Left" || e.key == "ArrowLeft") {
+        else if((e.key == "Left" || e.key == "ArrowLeft")&&(position != 0 ? position != 6:position == 6)) {
+            if(position == 1){
+                goalMove();
+                leftpressed = false;
+                return;
+            }
             move();
             leftPressed = false;
         }
+
+        /*else if(e.key == "Right" || e.key == "ArrowRight") {
+            startMove();
+            rightPressed = false;
+        }
+        else if(e.key == "Left" || e.key == "ArrowLeft") {
+            startMove();
+            leftPressed = false;
+        }*/
     }
 
     function mouseMoveHandler(e) {
-        var relativeX = e.clientX - canvas.offsetLeft;
-        if(relativeX > 0 && relativeX < canvas.width) {
-            if(relativeX >= canvas.width/2 && !leftPressed && !rightPressed){
-                rightClicked = true;
-                move();
-                rightClicked = false;
-            }
-            else if(relativeX < canvas.width/2 && !leftPressed && !rightPressed){
-                leftClicked = true;
-                move();
-                leftClicked = false;
-            }
-        }
-        
-    }
+       var relativeX = e.clientX - canvas.offsetLeft;
+       if(relativeX > 0 && relativeX < canvas.width) {
+           if(relativeX >= canvas.width/2 && !leftPressed && !rightPressed && (position != 0 ? position != 6: position == 6)){
+               if(position == 5){
+                   rightClicked = true;
+                   goalMove();
+                   rightClicked = false;
+                   return;
+               }
+               rightClicked = true;
+               move();
+               rightClicked = false;
+           }
+           else if(relativeX < canvas.width/2 && !leftPressed && !rightPressed && (position != 0 ? position != 6: position == 6)){
+               if(position == 1){
+                   leftClicked = true;
+                   goalMove();
+                   leftClicked = false;
+                   return;
+               }
+               leftClicked = true;
+               move();
+               leftClicked = false;
+           }
+           /*else if (relativeX >= canvas.width/2 && !leftPressed && !rightPressed){
+               rightClicked = true;
+               startMove();
+               rightClicked = false;
+           }
+           else if(relativeX < canvas.width/2 && !leftPressed && !rightPressed){
+               leftClicked = true;
+               startMove();
+               leftClicked = false;
+           }*/
+       }
+   }
 
     function move(){
+        var random = Math.floor(Math.random() * 10);
         spieler_1 = nextPlayer_blue();
         spieler_2 = nextPlayer_red();
         aufgabe = nextAufgabe();
-        var random = Math.floor(Math.random() * 10);
-        if(position == 6){
-                x = startX;
-                y = startY;
-                alert("TOR FÜR BLAU!!!");
-                canvas.width = canvas.width;
-                ball.onload();
-                position = 3;
-                return;
-        }
-        else if(position == 0){
-                x = startX;
-                y = startY;
-                alert("TOR FÜR ROT!!!");
-                canvas.width = canvas.width;
-                ball.onload();
-                position = 3;
-                return;
-        }
-        else {
-        //hello
-        spieler_1 = nextPlayer_blue();
-        spieler_2 = nextPlayer_red();
-        aufgabe = nextAufgabe(); 
-        }
         if(rightPressed || rightClicked){
             position++;
             x = posArray[position];
@@ -172,7 +195,63 @@
             }
         }
         canvas.width = canvas.width;
+        screen.onload();
         ball.onload();
+    }
+
+    function goalMove(){
+        if(position == 1){
+            position--;
+            x = posArray[position];
+            y = startY;
+            canvas.width = canvas.width;
+            ball.onload();
+            spieler_1 ="";
+            spieler_2 ="TOOOOR für ROT";
+            aufgabe = "";
+            screen.onload();
+            setTimeout(function(){startMove();},3000);
+        }else if (position == 5){
+            position++;
+            x = posArray[position];
+            y = startY;
+            canvas.width = canvas.width;
+            ball.onload();
+            spieler_1 ="TOOOOR für BLAU";
+            spieler_2 ="";
+            aufgabe = "";
+            screen.onload();
+            setTimeout(function(){startMove();},5000);
+        }
+    }
+    function startMove(){
+        spieler_1 = nextPlayer_blue();
+        spieler_2 = nextPlayer_red();
+        aufgabe = nextAufgabe(); 
+        if(position == 6){
+                x = startX;
+                y = startY;
+                rightPressed = false;
+                rightClicked = false;
+                canvas.width = canvas.width;
+                ball.onload();
+                screen.onload();
+                position = 3;
+                
+                return;
+        }
+        else if(position == 0){
+                x = startX;
+                y = startY;
+                leftPressed = false;
+                leftClicked = false;
+                canvas.width = canvas.width;
+                ball.onload();
+                screen.onload();
+                position = 3;
+                
+                return;
+        }
     }
 
     function parseTxt(txt_file_as_string) {
