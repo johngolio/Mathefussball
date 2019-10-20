@@ -26,7 +26,7 @@ html {
  }
  .container{
   box-shadow: 8px 8px 30px grey;
-  height: 65vh;
+  height: 68vh;
   width: 90%;
   border-radius: 20px;
   text-align: center;
@@ -129,6 +129,11 @@ html {
   margin-bottom: 30px;
   outline: none;
 } 
+
+input{
+  margin-bottom: 20px;
+  margin-top: -10px;;
+}
 
 ::-webkit-input-placeholder { /* Chrome */
   color: black;
