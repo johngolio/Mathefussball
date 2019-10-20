@@ -70,8 +70,9 @@
        ctx.fillText(spieler_1, 650, 100);
        ctx.fillText(spieler_2, 650, 320);
        ctx.font = "80px Arial";
-       ctx.fillText(aufgabe, 875, 225);
+       setTimeout(function(){ ctx.fillText(aufgabe, 875, 225); }, 5000);
     }
+
 
     document.addEventListener("keydown", keyDownHandler, false);
     document.addEventListener("keyup", keyUpHandler, false);
