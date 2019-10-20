@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Mathefussball</title>
-    <style>* { padding: 0; margin: 0; } canvas { background-image: url("bilder/feld-3.png");background-color: #000000; display: block; margin: 0 auto; }</style>
+    <style>* { padding: 0; margin: 0; } canvas { background-image: url("bilder/finaler.png");background-color: #000000; display: block; margin: 0 auto; }</style>
 </head>
 <body>
 
@@ -246,7 +246,7 @@ function sound(src) {
             goalsound.play();
             spieler_2 ="";
             aufgabe = "";
-            screen.src = 'bilder/RotSchuss.png'; 
+            screen.src = 'bilder/AnzeigeRotSchuss.png'; 
             screen.onload;
             setTimeout(function(){ 
                 screen.src = 'bilder/Anzeige.png';
@@ -268,7 +268,7 @@ function sound(src) {
             spieler_1 ="";
             spieler_2 ="";
             aufgabe = "";
-            screen.src = 'bilder/RotSchuss.png'; 
+            screen.src = 'bilder/AnzeigeBlauSchuss.png'; 
             screen.onload();
             setTimeout(function(){ 
                 screen.src = 'bilder/Anzeige.png';
@@ -392,7 +392,7 @@ function nextAufgabe() {
     }
     for (var int = 0; int < aufgaben_ergebnisse.length; int++) {
             aufgaben.push(aufgaben_ergebnisse[int].split('=')[0]);
-            ergebnisse.push(aufgaben_ergebnisse[int].split('=')[1]);
+            //ergebnisse.push(aufgaben_ergebnisse[int].split('=')[1]);
         }
     var test = aufgaben[aufgaben_counter];
     aufgaben_counter++;
