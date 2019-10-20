@@ -68,6 +68,7 @@
     var startY = 555;
     var x = startX;
     var y = startY;
+    var started = false;
     
     ball = new Image();
     ball.src = 'bilder/ball70px.png';
@@ -78,7 +79,7 @@
     screen = new Image();
     screen.src = 'bilder/Anzeige.png';
     screen.onload = function(){
-        ctx.drawImage(screen, 628,28);
+        ctx.drawImage(screen, 628, 28);
         ctx.font = "60px Arial";
         ctx.fillText(spieler_1, 650, 100);
         ctx.fillText(spieler_2, 650, 320);
@@ -170,6 +171,7 @@
    }
 
     function move(){
+        if (started) {
         var random = Math.floor(Math.random() * 10);
         spieler_1 = nextPlayer_blue();
         spieler_2 = nextPlayer_red();
@@ -207,6 +209,7 @@
         screen.onload();
         ball.onload();
     }
+    }
 
     
 function sound(src) {
@@ -225,6 +228,7 @@ function sound(src) {
 }
 
     function goalMove(){
+        if(started) {
         if(position == 1){
             position--;
             x = posArray[position];
@@ -237,10 +241,16 @@ function sound(src) {
             ball.onload();
             spieler_1 ="";
             goalsound.play();
-            spieler_2 ="TOOOOR für ROT";
+            spieler_2 ="";
             aufgabe = "";
-            screen.onload();
-            setTimeout(function(){startMove();},3000);
+            screen.src = 'bilder/RotSchuss.png'; 
+            screen.onload;
+            setTimeout(function(){ 
+                screen.src = 'bilder/Anzeige.png';
+                screen.onload();
+                startMove();
+            }, 3000);
+            //setTimeout(function(){startMove();},3000);
         }else if (position == 5){
             position++;
             x = posArray[position];
@@ -252,14 +262,22 @@ function sound(src) {
             ctx.fillText(score[1],1510, 210);
             ball.onload();
             goalsound.play();
-            spieler_1 ="TOOOOR für BLAU";
+            spieler_1 ="";
             spieler_2 ="";
             aufgabe = "";
+            screen.src = 'bilder/RotSchuss.png'; 
             screen.onload();
-            setTimeout(function(){startMove();},5000);
+            setTimeout(function(){ 
+                screen.src = 'bilder/Anzeige.png';
+                screen.onload();
+                startMove();
+            }, 3000);
+            //setTimeout(function(){startMove();},5000);
+        }
         }
     }
     function startMove(){
+        if(started) {
         spieler_1 = nextPlayer_blue();
         spieler_2 = nextPlayer_red();
         aufgabe = nextAufgabe(); 
@@ -268,6 +286,8 @@ function sound(src) {
                 y = startY;
                 rightPressed = false;
                 rightClicked = false;
+                leftPressed = false;
+                leftClicked = false;
                 canvas.width = canvas.width;
                 ctx.font = "80px Arial";
                 ctx.fillText(score[0],380, 210);
@@ -275,12 +295,13 @@ function sound(src) {
                 ball.onload();
                 screen.onload();
                 position = 3;
-                
                 return;
         }
         else if(position == 0){
                 x = startX;
                 y = startY;
+                rightPressed = false;
+                rightClicked = false;
                 leftPressed = false;
                 leftClicked = false;
                 canvas.width = canvas.width;
@@ -293,6 +314,7 @@ function sound(src) {
                 
                 return;
         }
+        }
     }
 
     function parseTxt(txt_file_as_string) {
@@ -304,6 +326,7 @@ function sound(src) {
         aufgaben_ergebnisse.push(lines[int]);
         }
     }
+    started = true;
     spieler_1 = nextPlayer_blue();
     spieler_2 = nextPlayer_red();
     aufgabe = nextAufgabe();
