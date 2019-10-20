@@ -117,6 +117,11 @@
             setTimeout(function () { ctx.fillText(aufgabe, 775, 225); }, 5000);       //Zeit umgesetzt
         }
 
+        goalscreen = new Image();
+        goalscreen.onload = function(){
+            ctx.drawImage(goalscreen, 628, 28);
+        }
+
 
         document.addEventListener("keydown", keyDownHandler, false);
         document.addEventListener("keyup", keyUpHandler, false);
@@ -275,10 +280,10 @@
                     goalsound.play();
                     spieler_2 = "";
                     aufgabe = "";
-                    screen.src = 'bilder/AnzeigeRotSchuss.PNG';
-                    screen.onload;
+                    goalscreen.src = 'bilder/AnzeigeRotSchuss.PNG';
+                    goalscreen.onload();
                     setTimeout(function () {
-                        screen.src = 'bilder/Anzeige.png';
+                        //screen.src = 'bilder/Anzeige.png';
                         screen.onload();
                         startMove();
                     }, 3000);
@@ -298,10 +303,10 @@
                     spieler_1 = "";
                     spieler_2 = "";
                     aufgabe = "";
-                    screen.src = 'bilder/AnzeigeBlauSchuss.PNG';
-                    screen.onload();
+                    goalscreen.src = 'bilder/AnzeigeBlauSchuss.PNG';
+                    goalscreen.onload();
                     setTimeout(function () {
-                        screen.src = 'bilder/Anzeige.png';
+                        //screen.src = 'bilder/Anzeige.png';
                         screen.onload();
                         startMove();
                     }, 3000);
