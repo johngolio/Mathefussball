@@ -46,7 +46,7 @@ window.onload = function () {
 
 function parse_schueler(string) {
     var fileContents = document.getElementById('text');
-    fileContents.innerHTML = string;
+    fileContents.innerHTML += string;
 }
 
 function parse(string) {
