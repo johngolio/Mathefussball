@@ -46,4 +46,14 @@ html {
     height:50%;
     width: auto;
  }
+ #buddies{
+    position:absolute;
+    bottom: 0;
+    left:0;
+    margin-top: 0;
+    display: block;
+    border: transparent;
+    height:60%;
+    width: auto;
+ }
  
