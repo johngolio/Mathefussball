@@ -1,0 +1,49 @@
+html {
+    background: url("bilder/HG.PNG") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+ }
+ ::-webkit-file-upload-button {
+    background: transparent;
+    font-size: 15pt;
+    block-size: 40px;
+    border: 1px solid;
+    border-radius: 6px;
+    outline: none;
+ }
+ #inputContainer{
+    text-align: center;
+ }
+ #imgContainer{
+    height: 600px;
+    width: 1200px;
+    overflow: hidden;
+    margin: auto;
+    padding-bottom: 20px;
+ }
+ #logo{
+    margin-top: 0;
+    display: block;
+    box-align: center;
+    border: transparent;
+    background-image: url("bilder/LogoFreigestellt.PNG");
+    background-size: 100%;
+    height: 720px;
+    width: 1240px;
+    margin-left: -5px;
+    margin-top: -5px;
+ }
+ #cat{
+    position:absolute;
+    bottom: 0;
+    right:0;
+    margin-top: 0;
+    display: block;
+    border: transparent;
+    height:50%;
+    width: auto;
+ }
+ 
