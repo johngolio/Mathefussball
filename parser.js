@@ -124,7 +124,7 @@ saveBtn.addEventListener("click", function () {
             saveTxt += string1 + "\n" + string2 + "\n";
         }
         saveTxt += document.getElementById("aufgaben").value;
-        download("Klasse1", saveTxt);
+        download("Klasse1.txt", saveTxt);
     }else{
         alert("Bitte beide Felder ausfüllen!");
     }
