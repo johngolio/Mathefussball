@@ -114,7 +114,7 @@ saveBtn.addEventListener("click", function () {
             string1 += "," + team_blau[loopi];
         }
         for (var loopi2 = 1; loopi2 < team_rot.length; loopi2++) {
-            string2 += "," + team_rot[loopi];
+            string2 += "," + team_rot[loopi2];
         }
         saveTxt += string1 + "\n" + string2 + "\n";
     }
