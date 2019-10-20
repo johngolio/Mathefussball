@@ -23,8 +23,10 @@
     var spieler_1 = "";
     var spieler_2 = "";
     var aufgabe = "";
+    var goalsound;
 
     window.onload = function () { 
+    goalsound = new sound("goalsound.mp3");
     if (window.File && window.FileReader && window.FileList && window.Blob) {
         var fileSelected = document.getElementById('input');
         fileSelected.addEventListener('change', function (e) { 
@@ -199,6 +201,22 @@
         ball.onload();
     }
 
+    
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
+
     function goalMove(){
         if(position == 1){
             position--;
@@ -207,6 +225,7 @@
             canvas.width = canvas.width;
             ball.onload();
             spieler_1 ="";
+            goalsound.play();
             spieler_2 ="TOOOOR für ROT";
             aufgabe = "";
             screen.onload();
@@ -217,6 +236,7 @@
             y = startY;
             canvas.width = canvas.width;
             ball.onload();
+            goalsound.play();
             spieler_1 ="TOOOOR für BLAU";
             spieler_2 ="";
             aufgabe = "";
