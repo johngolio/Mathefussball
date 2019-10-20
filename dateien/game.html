@@ -25,9 +25,11 @@
     var aufgabe = "";
     var score = [0,0];
     var goalsound;
+    var whistle;
 
     window.onload = function () { 
     goalsound = new sound("goalsound.mp3");
+    whistle = new sound("whistle.mp3");
     if (window.File && window.FileReader && window.FileList && window.Blob) {
         var fileSelected = document.getElementById('input');
         fileSelected.addEventListener('change', function (e) { 
@@ -44,6 +46,7 @@
                         ctx.fillText(score[1],1510, 210);
                         screen.onload();
                         ball.onload();
+                        whistle.play();
                     } 
                     fileReader.readAsText(fileTobeRead); 
                 } 
