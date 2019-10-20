@@ -4,6 +4,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  overflow: hidden;
 }
  #imgContainer{
   height: 140px;
@@ -32,6 +33,7 @@ html {
   text-align: center;
   display: inline-block;
   overflow: auto;
+  padding: 20px;
  }
  .columnLeft {
   width: 50%;
@@ -57,23 +59,21 @@ html {
   clear: both;
  }
  #saveContainer{
-  padding: 50px;
+  padding: 30px;
   text-align: center;
  }
  #save{
   font-size: 20pt;
   padding: 10px;
   border-radius: 10px;
+  background-color: rgb(243, 55, 55);
+  color:white;
+  border: none;
+  box-shadow: 8px 8px 30px grey;
+  margin-bottom: 0;
  }
  .selector{
   display: inline-block;
- }
-
- #save{
-   background-color: rgb(243, 55, 55);
-   color:white;
-   border: none;
-   box-shadow: 8px 8px 30px grey;
  }
 
  #select_1{
