@@ -23,6 +23,7 @@
     var spieler_1 = "";
     var spieler_2 = "";
     var aufgabe = "";
+    var score = [0,0];
     var goalsound;
 
     window.onload = function () { 
@@ -38,6 +39,9 @@
                         content = fileReader.result;
                         parseTxt(content);
                         canvas.width = canvas.width;
+                        ctx.font = "80px Arial";
+                        ctx.fillText(score[0],380, 210);
+                        ctx.fillText(score[1],1510, 210);
                         screen.onload();
                         ball.onload();
                     } 
@@ -197,6 +201,9 @@
             }
         }
         canvas.width = canvas.width;
+        ctx.font = "80px Arial";
+        ctx.fillText(score[0],380, 210);
+        ctx.fillText(score[1],1510, 210);
         screen.onload();
         ball.onload();
     }
@@ -223,6 +230,10 @@ function sound(src) {
             x = posArray[position];
             y = startY;
             canvas.width = canvas.width;
+            score[1]++;
+            ctx.font = "80px Arial";
+            ctx.fillText(score[0],380, 210);
+            ctx.fillText(score[1],1510, 210);
             ball.onload();
             spieler_1 ="";
             goalsound.play();
@@ -235,6 +246,10 @@ function sound(src) {
             x = posArray[position];
             y = startY;
             canvas.width = canvas.width;
+            score[0]++;
+            ctx.font = "80px Arial";
+            ctx.fillText(score[0],380, 210);
+            ctx.fillText(score[1],1510, 210);
             ball.onload();
             goalsound.play();
             spieler_1 ="TOOOOR für BLAU";
@@ -254,6 +269,9 @@ function sound(src) {
                 rightPressed = false;
                 rightClicked = false;
                 canvas.width = canvas.width;
+                ctx.font = "80px Arial";
+                ctx.fillText(score[0],380, 210);
+                ctx.fillText(score[1],1510, 210);
                 ball.onload();
                 screen.onload();
                 position = 3;
@@ -266,6 +284,9 @@ function sound(src) {
                 leftPressed = false;
                 leftClicked = false;
                 canvas.width = canvas.width;
+                ctx.font = "80px Arial";
+                ctx.fillText(score[0],380, 210);
+                ctx.fillText(score[1],1510, 210);
                 ball.onload();
                 screen.onload();
                 position = 3;
