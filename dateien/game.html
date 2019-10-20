@@ -63,8 +63,9 @@
                             parseTxt(content);
                             canvas.width = canvas.width;
                             ctx.font = "80px Arial";
-                            ctx.fillText(score[0], 380, 210);
-                            ctx.fillText(score[1], 1510, 210);
+                            ctx.textAlign = "center";
+                            ctx.fillText(score[0], 405, 210);
+                            ctx.fillText(score[1], 1530, 210);
                             screen.onload();
                             ball.onload();
                             whistle.play();
@@ -108,11 +109,12 @@
         screen.src = 'bilder/Anzeige.png';
         screen.onload = function () {
             ctx.drawImage(screen, 628, 28);
+            ctx.textAlign = "left";
             ctx.font = "60px Arial";
             ctx.fillText(spieler_1, 650, 100);
             ctx.fillText(spieler_2, 650, 320);
             ctx.font = "80px Arial";
-            setTimeout(function () { ctx.fillText(aufgabe, 875, 225); }, 5000);       //Zeit umgesetzt
+            setTimeout(function () { ctx.fillText(aufgabe, 775, 225); }, 5000);       //Zeit umgesetzt
         }
 
 
@@ -232,8 +234,9 @@
                 }
                 canvas.width = canvas.width;
                 ctx.font = "80px Arial";
-                ctx.fillText(score[0], 380, 210);
-                ctx.fillText(score[1], 1510, 210);
+                ctx.textAlign = "center";
+                ctx.fillText(score[0], 405, 210);
+                ctx.fillText(score[1], 1530, 210);
                 screen.onload();
                 ball.onload();
             }
@@ -264,8 +267,9 @@
                     canvas.width = canvas.width;
                     score[1]++;
                     ctx.font = "80px Arial";
-                    ctx.fillText(score[0], 380, 210);
-                    ctx.fillText(score[1], 1510, 210);
+                    ctx.textAlign = "center";
+                    ctx.fillText(score[0], 405, 210);
+                    ctx.fillText(score[1], 1530, 210);
                     ball.onload();
                     spieler_1 = "";
                     goalsound.play();
@@ -286,8 +290,9 @@
                     canvas.width = canvas.width;
                     score[0]++;
                     ctx.font = "80px Arial";
-                    ctx.fillText(score[0], 380, 210);
-                    ctx.fillText(score[1], 1510, 210);
+                    ctx.textAlign = "center";
+                    ctx.fillText(score[0], 405, 210);
+                    ctx.fillText(score[1], 1530, 210);
                     ball.onload();
                     goalsound.play();
                     spieler_1 = "";
@@ -318,8 +323,9 @@
                     leftClicked = false;
                     canvas.width = canvas.width;
                     ctx.font = "80px Arial";
-                    ctx.fillText(score[0], 380, 210);
-                    ctx.fillText(score[1], 1510, 210);
+                    ctx.textAlign = "center";
+                    ctx.fillText(score[0], 405, 210);
+                    ctx.fillText(score[1], 1530, 210);
                     ball.onload();
                     screen.onload();
                     position = 3;
@@ -334,8 +340,9 @@
                     leftClicked = false;
                     canvas.width = canvas.width;
                     ctx.font = "80px Arial";
-                    ctx.fillText(score[0], 380, 210);
-                    ctx.fillText(score[1], 1510, 210);
+                    ctx.textAlign = "center";
+                    ctx.fillText(score[0], 405, 210);
+                    ctx.fillText(score[1], 1530, 210);
                     ball.onload();
                     screen.onload();
                     position = 3;
