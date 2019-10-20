@@ -1,7 +1,11 @@
-body{
-  background-image: url("bilder/HG.PNG");
-  background-size: 100%;
- }
+html { 
+  background: url("bilder/HG.PNG") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
  #imgContainer{
   height: 140px;
   width: 300px;
@@ -10,36 +14,43 @@ body{
   padding-bottom: 25px;
  }
  #logo{
-   margin-top: 0;
+  margin-top: 0;
   display: block;
- box-align: center;
- border: transparent;
- background-image: url("bilder/LogoFreigestellt.PNG");
- background-size: 100%;
- height: 180px;
- width: 310px;
- margin-left: -5px;
- margin-top: -5px;
+  box-align: center;
+  border: transparent;
+  background-image: url("bilder/LogoFreigestellt.PNG");
+  background-size: 100%;
+  height: 180px;
+  width: 310px;
+  margin-left: -5px;
+  margin-top: -5px;
  }
  .container{
   box-shadow: 8px 8px 30px grey;
-  height: 65vh;
+  height: 68vh;
   width: 90%;
-  display: inline-block;
   border-radius: 20px;
-  overflow: scroll;
+  text-align: center;
+  display: inline-block;
+  overflow: auto;
+  padding: 20px;
  }
  .columnLeft {
-  float: left;
   width: 50%;
   font-size: 20pt;
   text-align: center;
+  min-width: 500px;
+  float: left;
  }
  .columnRight {
-  float: right;
   width: 50%;
   font-size: 20pt;
   text-align: center;
+  min-width: 500px;
+  float: right;
+ }
+ .row{
+   text-align: center;
  }
  /* Clear floats after the columns */
  .row:after {
@@ -48,24 +59,22 @@ body{
   clear: both;
  }
  #saveContainer{
-  padding: 50px;
+  padding: 30px;
   text-align: center;
  }
  #save{
   font-size: 20pt;
   padding: 10px;
   border-radius: 10px;
+  background-color: rgb(243, 55, 55);
+  color:white;
+  border: none;
+  box-shadow: 8px 8px 30px grey;
+  margin-bottom: 0;
+  outline: none;
  }
  .selector{
   display: inline-block;
- }
-
- #save{
-   background-color: rgb(243, 55, 55);
-   color:white;
-   border: none;
-   box-shadow: 8px 8px 30px grey;
-   
  }
 
  #select_1{
@@ -73,6 +82,7 @@ body{
    font-size: 15pt;
    block-size: 40px;
    border: 1px solid;
+   outline: none;
  }
 
  #kids{
@@ -84,8 +94,7 @@ body{
   height: 40px;
   width: 40px;
   text-align: center;
-  
- 
+  outline: none;
  }
 
  #aufgaben{
@@ -96,6 +105,8 @@ body{
   margin-top: 10px;
   resize: none;
   size: 50%;
+  padding: 1%;
+  outline: none;
  }
 
  #text{
@@ -105,6 +116,8 @@ body{
   border-radius: 10px;
   margin-top: 10px;
   resize: none;
+  padding: 1%;
+  outline: none;
  }
 
 
@@ -115,4 +128,27 @@ body{
   border: 1px solid;
   border-radius: 6px;
   margin-bottom: 30px;
+  outline: none;
 } 
+
+input{
+  margin-bottom: 20px;
+  margin-top: -10px;;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+  color: black;
+  opacity: 0.5;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: black;
+  opacity: 0.5;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color:black;
+  opacity: 0.5;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: black;
+  opacity: 0.5;
+}
