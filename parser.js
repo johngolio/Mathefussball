@@ -105,15 +105,15 @@ saveBtn.addEventListener("click", function () {
         var max_size = Math.ceil(schueler_namen.length / 2);
         team_blau = schueler_namen.slice(0, max_size);
         if (schueler_namen.length % 2 == 1) {
-            team_rot = schueler_namen.slice(0, -(max_size - 1));
+            team_rot = schueler_namen.slice(max_size, schueler_namen.length);
         }
-        else team_rot = schueler_namen.slice(0, -(max_size));
+        else team_rot = schueler_namen.slice(max_size, schueler_namen.length);
         string1 += team_blau[0];
         string2 += team_rot[0];
-        for (var loopi = 1; loopi < team_blau; loopi++) {
+        for (var loopi = 1; loopi < team_blau.length; loopi++) {
             string1 += "," + team_blau[loopi];
         }
-        for (var loopi2 = 1; loopi2 < team_blau; loopi2++) {
+        for (var loopi2 = 1; loopi2 < team_rot.length; loopi2++) {
             string2 += "," + team_rot[loopi];
         }
         saveTxt += string1 + "\n" + string2 + "\n";
