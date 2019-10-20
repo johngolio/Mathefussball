@@ -72,54 +72,62 @@ function parse(string) {
 
 var saveBtn = document.getElementById("save");
 saveBtn.addEventListener("click", function () {
-    var saveTxt = "";
-    var selection = document.getElementById("select_1").value;
-    var team_rot = [];
-    var team_blau = [];
-    var string1 = "";
-    var string2 = "";
-    if (selection == "1") {
-        // Zahlen
-        var team1_size;
-        var team2_size;
-        var int = document.getElementById("kids").value;
-        team1_size = Math.ceil(int / 2);
-        team2_size = Math.floor(int / 2);
-        string1 = "1";
-        string2 = "1";
-        var loop;
-        for (loop = 2; loop < team2_size; loop++) {
-            string1 += "," + loop;
-            string2 += "," + loop;
-        }
-        if (team1_size > team2_size) {
-            string1 += "," + loop;
-        }
-        saveTxt += string1 + "\n" + string2 + "\n";
+    var bool1 = false;
+    if(document.getElementById('text').value != "" && document.getElementById("select_1").value == 2 || document.getElementById("kids").value > 0 && document.getElementById("select_1").value == 1){
+        bool1 = true;
     }
-    else {
-        // Namen
-        var schueler_txt = document.getElementById("text").value;
-        schueler_namen = schueler_txt.split("\n");
-        schueler_namen = shuffle(schueler_namen);
-        var max_size = Math.ceil(schueler_namen.length / 2);
-        team_blau = schueler_namen.slice(0, max_size);
-        if (schueler_namen.length % 2 == 1) {
-            team_rot = schueler_namen.slice(max_size, schueler_namen.length);
+    if (bool1 && document.getElementById("aufgaben").value != "") {
+        var saveTxt = "";
+        var selection = document.getElementById("select_1").value;
+        var team_rot = [];
+        var team_blau = [];
+        var string1 = "";
+        var string2 = "";
+        if (selection == "1") {
+            // Zahlen
+            var team1_size;
+            var team2_size;
+            var int = document.getElementById("kids").value;
+            team1_size = Math.ceil(int / 2);
+            team2_size = Math.floor(int / 2);
+            string1 = "1";
+            string2 = "1";
+            var loop;
+            for (loop = 2; loop < team2_size; loop++) {
+                string1 += "," + loop;
+                string2 += "," + loop;
+            }
+            if (team1_size > team2_size) {
+                string1 += "," + loop;
+            }
+            saveTxt += string1 + "\n" + string2 + "\n";
         }
-        else team_rot = schueler_namen.slice(max_size, schueler_namen.length);
-        string1 += team_blau[0];
-        string2 += team_rot[0];
-        for (var loopi = 1; loopi < team_blau.length; loopi++) {
-            string1 += "," + team_blau[loopi];
+        else {
+            // Namen
+            var schueler_txt = document.getElementById("text").value;
+            schueler_namen = schueler_txt.split("\n");
+            schueler_namen = shuffle(schueler_namen);
+            var max_size = Math.ceil(schueler_namen.length / 2);
+            team_blau = schueler_namen.slice(0, max_size);
+            if (schueler_namen.length % 2 == 1) {
+                team_rot = schueler_namen.slice(max_size, schueler_namen.length);
+            }
+            else team_rot = schueler_namen.slice(max_size, schueler_namen.length);
+            string1 += team_blau[0];
+            string2 += team_rot[0];
+            for (var loopi = 1; loopi < team_blau.length; loopi++) {
+                string1 += "," + team_blau[loopi];
+            }
+            for (var loopi2 = 1; loopi2 < team_rot.length; loopi2++) {
+                string2 += "," + team_rot[loopi2];
+            }
+            saveTxt += string1 + "\n" + string2 + "\n";
         }
-        for (var loopi2 = 1; loopi2 < team_rot.length; loopi2++) {
-            string2 += "," + team_rot[loopi2];
-        }
-        saveTxt += string1 + "\n" + string2 + "\n";
+        saveTxt += document.getElementById("aufgaben").value;
+        download("Klasse1.txt", saveTxt);
+    }else{
+        alert("Bitte beide Felder ausfüllen!");
     }
-    saveTxt += document.getElementById("aufgaben").value;
-    download("Klasse1", saveTxt);
 });
 
 function shuffle(array) {
