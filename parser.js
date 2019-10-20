@@ -93,7 +93,7 @@ saveBtn.addEventListener("click", function () {
             string1 = "1";
             string2 = "1";
             var loop;
-            for (loop = 2; loop < team2_size; loop++) {
+            for (loop = 2; loop <= team2_size; loop++) {
                 string1 += "," + loop;
                 string2 += "," + loop;
             }
@@ -109,10 +109,7 @@ saveBtn.addEventListener("click", function () {
             schueler_namen = shuffle(schueler_namen);
             var max_size = Math.ceil(schueler_namen.length / 2);
             team_blau = schueler_namen.slice(0, max_size);
-            if (schueler_namen.length % 2 == 1) {
-                team_rot = schueler_namen.slice(max_size, schueler_namen.length);
-            }
-            else team_rot = schueler_namen.slice(max_size, schueler_namen.length);
+            team_rot = schueler_namen.slice(max_size, schueler_namen.length);
             string1 += team_blau[0];
             string2 += team_rot[0];
             for (var loopi = 1; loopi < team_blau.length; loopi++) {
