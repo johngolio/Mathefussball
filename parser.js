@@ -46,7 +46,8 @@ window.onload = function () {
 
 function parse_schueler(string) {
     var fileContents = document.getElementById('text');
-    fileContents.innerHTML = string;
+    fileContents.value += string.trim();
+    fileContents.value += "\n"
 }
 
 function parse(string) {
@@ -54,20 +55,22 @@ function parse(string) {
     results = [];
 
     var lines = string.split("\n");
-    player = lines[0];
 
     var fileContents = document.getElementById('aufgaben');
 
-    for (var i = 1; i < lines.length; i++) {
-        fileContents.innerHTML += lines[i] + "\n";
+    for (var i = 0; i < lines.length - 1; i++) {
+        if(lines[i] != ""){
+            fileContents.value += lines[i] + "\n";
 
-        var split = lines[i].split("=");
-        exercises.push(split[0].trim());
-        results.push(split[1].trim());
+            var split = lines[i].split("=");
+            exercises.push(split[0].trim());
+            if(split.length > 1){
+                results.push(split[1].trim());
+            }else{
+                results.push("");
+            }
+        }
     }
-
-
-    console.log(exercises[0]);
 }
 
 var saveBtn = document.getElementById("save");
@@ -79,6 +82,7 @@ saveBtn.addEventListener("click", function () {
     if (bool1 && document.getElementById("aufgaben").value != "") {
         var saveTxt = "";
         var selection = document.getElementById("select_1").value;
+        selection.trim();
         var team_rot = [];
         var team_blau = [];
         var string1 = "";
@@ -105,6 +109,7 @@ saveBtn.addEventListener("click", function () {
         else {
             // Namen
             var schueler_txt = document.getElementById("text").value;
+            schueler_txt = schueler_txt.trim();
             schueler_namen = schueler_txt.split("\n");
             schueler_namen = shuffle(schueler_namen);
             var max_size = Math.ceil(schueler_namen.length / 2);
@@ -121,7 +126,7 @@ saveBtn.addEventListener("click", function () {
             saveTxt += string1 + "\n" + string2 + "\n";
         }
         saveTxt += document.getElementById("aufgaben").value;
-        download("Klasse1.txt", saveTxt);
+        download("Spieledatei.txt", saveTxt.trim());
     }else{
         alert("Bitte beide Felder ausfüllen!");
     }
