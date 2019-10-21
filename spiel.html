@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Mathefussball</title>
-    <link rel="icon" type="image/png" href="bilder/Ball.png">
-    <link rel="stylesheet" type="text/css" href="game.css">    
+    <link rel="icon" type="image/png" href="dateien/bilder/Ball.png">
+    <link rel="stylesheet" type="text/css" href="dateien/game.css">    
     <style>
         * {
             padding: 0;
@@ -13,7 +13,7 @@
         }
 
         canvas {
-            background-image: url("bilder/finaler.png");
+            background-image: url("dateien/bilder/finaler.png");
             background-color: #000000;
             display: block;
             margin: 0 auto;
@@ -28,8 +28,8 @@
         </div>
         <input type="file" id="input" class="selector" />
     </div>
-    <img id="cat" src="bilder/katzepng.png"></img>
-    <img id="buddies" src="bilder/Fussballbuddiesandersrum.PNG"></img>
+    <img id="cat" src="dateien/bilder/katzepng.png"></img>
+    <img id="buddies" src="dateien/bilder/Fussballbuddiesandersrum.PNG"></img>
     <canvas id="myCanvas" width="1920" height="1080"></canvas>
 
     <script>
@@ -49,8 +49,8 @@
         var whistle;
 
         window.onload = function () {
-            goalsound = new sound("goalsound.mp3");
-            whistle = new sound("whistle.mp3");
+            goalsound = new sound("dateien/sounds/goalsound.mp3");
+            whistle = new sound("dateien/sounds/whistle.mp3");
             if (window.File && window.FileReader && window.FileList && window.Blob) {
                 var fileSelected = document.getElementById('input');
                 fileSelected.addEventListener('change', function (e) {
@@ -101,13 +101,13 @@
         var started = false;
 
         ball = new Image();
-        ball.src = 'bilder/Ball70px.PNG';
+        ball.src = 'dateien/bilder/Ball70px.PNG';
         ball.onload = function () {
             ctx.drawImage(ball, x, y);
         }
 
         screen = new Image();
-        screen.src = 'bilder/Anzeige.png';
+        screen.src = 'dateien/bilder/Anzeige.png';
         screen.onload = function () {
             ctx.drawImage(screen, 632, 32);
             ctx.textAlign = "left";
@@ -281,7 +281,7 @@
                     goalsound.play();
                     spieler_2 = "";
                     aufgabe = "";
-                    goalscreen.src = 'bilder/AnzeigeRotSchuss.PNG';
+                    goalscreen.src = 'dateien/bilder/AnzeigeRotSchuss.PNG';
                     goalscreen.onload();
                     setTimeout(function () {
                         //screen.src = 'bilder/Anzeige.png';
@@ -304,7 +304,7 @@
                     spieler_1 = "";
                     spieler_2 = "";
                     aufgabe = "";
-                    goalscreen.src = 'bilder/AnzeigeBlauSchuss.PNG';
+                    goalscreen.src = 'dateien/bilder/AnzeigeBlauSchuss.PNG';
                     goalscreen.onload();
                     setTimeout(function () {
                         //screen.src = 'bilder/Anzeige.png';
