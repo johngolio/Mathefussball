@@ -32,11 +32,11 @@ JavaScript muss auf dem Browser verfügbar sein.
 ## Authors
 
 * **Jan Jochum** - [johngolio](https://github.com/johngolio)
-* **Julius Herrmann** 
+* **Julius Herrmann** - [JuliusHerrmann](https://github.com/JuliusHerrmann)
 * **Mina Paulus** - [minapaulus](https://github.com/minapaulus)
 * **Laura Lücke**
 * **Mirko Meinerzag**
-* **Angelina Göbl**
+* **Angelina Göbl** - [AngelinaGoebl](https://github.com/AngelinaGoebl)
 * **Jonas Wallach** - [JoEnes123](https://github.com/JoEnes123)
 * **Lars Franke** - [Ccarayhua](https://github.com/Ccarayhua)
 * **Sebastian Schuster** - [einsebastian](https://github.com/einsebastian)
