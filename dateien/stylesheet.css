@@ -72,6 +72,26 @@ html {
   text-align: center;
 }
 
+.btn{
+  font-size: 20pt;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  box-shadow: 8px 8px 30px grey;
+  margin-bottom: 0;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+#btnRot{
+  background-color: rgb(243, 55, 55);
+}
+
+#btnBlau{
+  background-color: rgb(75, 132, 255);
+}
+
 #save {
   font-size: 20pt;
   padding: 10px;
