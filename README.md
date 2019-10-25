@@ -23,7 +23,7 @@ Dort muss man zuerst die erstellte txt-Datei auswählen und anschließend starte
 
 Das Bewegen des Balls erfolgt per Toucheingabe in das gewünschte Feld oder per Mausklick, sowie durch Nutzung der Pfeiltasten auf der Tastatur.
 
-Sollte das Bild zu groß oder zu klein sein, kann man dies über die Tastatur mit den Tasten strg - (verkleinern) oder strg + (vergrößern).
+Sollte das Bild zu groß oder zu klein sein, kann man dies über die Tastatur mit den Tasten strg und - (verkleinern) oder strg und + (vergrößern).
 
 Für eine neue Runde, einfach den Browser aktualisieren.
 
@@ -40,7 +40,7 @@ JavaScript muss auf dem Browser verfügbar sein.
 * **Jan Jochum** - [johngolio](https://github.com/johngolio)
 * **Julius Herrmann** - [JuliusHerrmann](https://github.com/JuliusHerrmann)
 * **Mina Paulus** - [minapaulus](https://github.com/minapaulus)
-* **Laura Lücke**
+* **Laura Lücke** - [PandaRouxDesign](https://github.com/PandaRouxDesign)
 * **Mirko Meinerzag**
 * **Angelina Göbl** - [AngelinaGoebl](https://github.com/AngelinaGoebl)
 * **Jonas Wallach** - [JoEnes123](https://github.com/JoEnes123)
